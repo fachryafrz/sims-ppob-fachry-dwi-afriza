@@ -16,3 +16,11 @@ export interface BannerType {
   banner_name: string;
   description: string;
 }
+
+export interface TransactionType {
+  created_on: string;
+  description: string;
+  invoice_number: string;
+  total_amount: number;
+  transaction_type: string;
+}
