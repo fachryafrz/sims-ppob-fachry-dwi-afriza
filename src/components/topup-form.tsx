@@ -10,6 +10,7 @@ import CurrencyInput from "react-currency-input-field";
 import toast from "react-hot-toast";
 import { useSWRConfig } from "swr";
 
+const MIN_TOPUP = 10_000;
 const MAX_TOPUP = 1_000_000;
 
 export default function TopupForm() {
@@ -44,6 +45,13 @@ export default function TopupForm() {
 
   const handleSubmit = async () => {
     onClose();
+
+    if (Number(amount) < MIN_TOPUP) {
+      toast.error(
+        `Minimal Top Up Rp${Intl.NumberFormat("id-ID").format(MIN_TOPUP)}`,
+      );
+      return;
+    }
 
     if (Number(amount) > MAX_TOPUP) {
       toast.error(

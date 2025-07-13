@@ -17,11 +17,14 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<Error | null>();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
+      setLoading(true);
+
       const { data } = await axios.post("/api/login", {
         email: email.trim(),
         password: password.trim(),
@@ -38,6 +41,8 @@ export default function LoginForm() {
           setPassword("");
         }
       }
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -105,7 +110,8 @@ export default function LoginForm() {
 
         <button
           type="submit"
-          className="mt-8 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white"
+          className="mt-8 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white disabled:cursor-default disabled:opacity-50"
+          disabled={loading}
         >
           Masuk
         </button>
