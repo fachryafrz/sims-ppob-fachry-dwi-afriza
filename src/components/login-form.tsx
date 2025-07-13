@@ -1,18 +1,14 @@
 "use client";
 
 import { siteConfig } from "@/config/site";
+import { Error } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import axios, { AxiosError } from "axios";
 import { AtSign, Eye, EyeOff, LockKeyhole, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-
-interface Error {
-  data: string;
-  message: string;
-  status: number;
-}
+import toast from "react-hot-toast";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -26,7 +22,9 @@ export default function LoginForm() {
     e.preventDefault();
 
     try {
-      await axios.post("/api/login", { email, password });
+      const { data } = await axios.post("/api/login", { email, password });
+
+      toast.success(data.message);
 
       router.refresh();
     } catch (error) {

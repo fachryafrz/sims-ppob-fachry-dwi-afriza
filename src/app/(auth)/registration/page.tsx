@@ -1,10 +1,10 @@
-import LoginForm from "@/components/login-form";
+import RegistrationForm from "@/components/registration-form";
 
-export default function Login() {
+export default function Registration() {
   return (
-    <div className="grid h-dvh grid-cols-2">
+    <div className="grid min-h-dvh grid-cols-2">
       {/* Form */}
-      <LoginForm />
+      <RegistrationForm />
 
       {/* Image */}
       <div className="h-full overflow-hidden">
