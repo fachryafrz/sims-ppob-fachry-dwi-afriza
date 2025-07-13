@@ -25,7 +25,9 @@ export default function Saldo() {
         <span className="block">Saldo anda</span>
 
         <span className="block text-3xl font-medium">
-          {showAmount ? `Rp ${data.balance}` : `Rp •••••••`}
+          {showAmount
+            ? `Rp ${Intl.NumberFormat("id-ID").format(data.balance)}`
+            : `Rp •••••••`}
         </span>
 
         <div className="mt-5 flex items-center gap-3 text-xs font-medium">
