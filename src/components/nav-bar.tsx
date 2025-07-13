@@ -24,8 +24,8 @@ export default function NavBar() {
   ];
 
   return (
-    <header className="p-4">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+    <header className="border-b border-gray-200 p-4 px-0">
+      <nav className="mx-auto flex items-center justify-between gap-4 px-24">
         {/* Home */}
         <Link href="/" className="flex items-center gap-2 text-lg font-medium">
           <img src={siteConfig.logo} alt="" draggable={false} />
