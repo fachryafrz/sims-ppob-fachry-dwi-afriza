@@ -8,17 +8,9 @@ import useSWR from "swr";
 export default function Saldo() {
   const [showAmount, setShowAmount] = useState(true);
 
-  const { data } = useSWR(
-    "/api/balance",
-    async (url) => {
-      return await axios.get(url).then(({ data }) => data.data);
-    },
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    },
-  );
+  const { data } = useSWR("/api/balance", async (url) => {
+    return await axios.get(url).then(({ data }) => data.data);
+  });
 
   return (
     data && (
@@ -39,7 +31,7 @@ export default function Saldo() {
           <div className="mt-5 flex items-center gap-3 text-xs font-medium">
             Lihat Saldo{" "}
             <button
-              className="cursor-pointer bg-[#F13B2F]"
+              className="cursor-pointer"
               onClick={() => setShowAmount(!showAmount)}
             >
               {showAmount ? <EyeOff size={16} /> : <Eye size={16} />}

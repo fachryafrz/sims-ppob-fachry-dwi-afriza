@@ -4,24 +4,19 @@ import { Error } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import axios, { AxiosError } from "axios";
 import { AtSign, User } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import useSWR, { useSWRConfig } from "swr";
 
 export default function AkunForm() {
+  const router = useRouter();
+
   const { mutate } = useSWRConfig();
 
-  const { data } = useSWR(
-    "/api/profile",
-    async (url) => {
-      return await axios.get(url).then(({ data }) => data.data);
-    },
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    },
-  );
+  const { data } = useSWR("/api/profile", async (url) => {
+    return await axios.get(url).then(({ data }) => data.data);
+  });
 
   const [isEditing, setIsEditing] = useState(false);
   const [email, setEmail] = useState(data?.email);
@@ -45,6 +40,18 @@ export default function AkunForm() {
     } catch (error) {
       if (error instanceof AxiosError) {
         setError(error.response?.data);
+      }
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await axios.post("/api/logout");
+
+      router.refresh();
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        console.log(error.response?.data);
       }
     }
   };
@@ -192,6 +199,7 @@ export default function AkunForm() {
           "block w-full cursor-pointer rounded border border-red-500 px-4 py-3 text-sm font-medium text-red-500",
           !isEditing ? "block" : "hidden",
         )}
+        onClick={handleLogout}
       >
         Logout
       </button>

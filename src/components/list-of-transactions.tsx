@@ -88,7 +88,13 @@ export default function ListOfTransactions() {
           </div>
         ))}
 
-        {showMore && (
+        {data.records.length === 0 && (
+          <span className="block text-center text-sm text-gray-400">
+            Belum ada transaksi
+          </span>
+        )}
+
+        {data.records.length > 0 && showMore && (
           <button
             className="mx-auto block cursor-pointer font-medium text-red-500"
             onClick={() => fetchMore()}

@@ -8,17 +8,9 @@ import useSWR, { useSWRConfig } from "swr";
 export default function ImageUpload() {
   const { mutate } = useSWRConfig();
 
-  const { data } = useSWR(
-    "/api/profile",
-    async (url) => {
-      return await axios.get(url).then(({ data }) => data.data);
-    },
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    },
-  );
+  const { data } = useSWR("/api/profile", async (url) => {
+    return await axios.get(url).then(({ data }) => data.data);
+  });
 
   const handleFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -52,14 +44,14 @@ export default function ImageUpload() {
               src={"/assets/Profile Photo.png"}
               alt=""
               draggable={false}
-              className="w-full rounded-full border border-gray-400/50"
+              className="aspect-square w-full rounded-full border border-gray-400/50 object-cover"
             />
           ) : (
             <img
               src={data.profile_image}
               alt=""
               draggable={false}
-              className="w-full rounded-full border border-gray-400/50"
+              className="aspect-square w-full rounded-full border border-gray-400/50 object-cover"
             />
           )}
 
