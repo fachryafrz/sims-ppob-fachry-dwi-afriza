@@ -1,3 +1,5 @@
+import Akun from "@/components/akun";
+
 export default function AkunPage() {
-  return <div>AkunPage</div>;
+  return <Akun />;
 }
