@@ -30,7 +30,6 @@ export default function ServiceForm({ service }: { service: ServicesType }) {
   } = useStatus();
 
   const handleSubmit = async () => {
-    console.log(service.service_tariff);
     onClose();
 
     try {
@@ -65,8 +64,8 @@ export default function ServiceForm({ service }: { service: ServicesType }) {
           e.preventDefault();
 
           onOpen();
-          setAmount(service.service_tariff);
           setDescription(`Beli ${service.service_name.toLowerCase()} senilai`);
+          setAmount(service.service_tariff);
           setOnConfirm(handleSubmit);
           setConfirmText("Ya, lanjutkan Bayar");
         }}
