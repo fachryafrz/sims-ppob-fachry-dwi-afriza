@@ -8,9 +8,17 @@ import useSWR from "swr";
 import "swiper/css";
 
 export default function Banner() {
-  const { data, error, isLoading } = useSWR("/api/banner", async (url) => {
-    return await axios.get(url).then(({ data }) => data.data);
-  });
+  const { data, error, isLoading } = useSWR(
+    "/api/banner",
+    async (url) => {
+      return await axios.get(url).then(({ data }) => data.data);
+    },
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    },
+  );
 
   if (error) return <div className="px-24">failed to load</div>;
   if (isLoading) return <div className="px-24">loading...</div>;

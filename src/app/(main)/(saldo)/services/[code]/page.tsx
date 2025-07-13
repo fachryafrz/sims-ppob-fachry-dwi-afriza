@@ -1,6 +1,4 @@
-import Saldo from "@/components/saldo";
 import ServiceForm from "@/components/service-form";
-import Welcome from "@/components/welcome";
 import { ACCESS_TOKEN } from "@/lib/constants";
 import { ServicesType } from "@/lib/types";
 import axios from "axios";
@@ -27,13 +25,6 @@ export default async function ServicesPage({
 
   return (
     <>
-      {/* User Info & Saldo */}
-      <div className="flex items-center justify-between px-24">
-        <Welcome />
-
-        <Saldo />
-      </div>
-
       {/* Service Info */}
       <div className="space-y-2 px-24">
         <h2 className="font-medium">Pembayaran</h2>

@@ -4,9 +4,17 @@ import axios from "axios";
 import useSWR from "swr";
 
 export default function Welcome() {
-  const { data, error, isLoading } = useSWR("/api/profile", async (url) => {
-    return await axios.get(url).then(({ data }) => data.data);
-  });
+  const { data, error, isLoading } = useSWR(
+    "/api/profile",
+    async (url) => {
+      return await axios.get(url).then(({ data }) => data.data);
+    },
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    },
+  );
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;

@@ -8,8 +8,11 @@ import axios, { AxiosError } from "axios";
 import { Banknote } from "lucide-react";
 import { useState } from "react";
 import CurrencyInput from "react-currency-input-field";
+import { useSWRConfig } from "swr";
 
 export default function ServiceForm({ service }: { service: ServicesType }) {
+  const { mutate } = useSWRConfig();
+
   const {
     onOpen,
     onClose,
@@ -34,6 +37,8 @@ export default function ServiceForm({ service }: { service: ServicesType }) {
       await axios.post("/api/transaction", {
         service_code: service.service_code,
       });
+
+      mutate("/api/balance");
 
       onOpenStatus();
       setDescriptionStatus(

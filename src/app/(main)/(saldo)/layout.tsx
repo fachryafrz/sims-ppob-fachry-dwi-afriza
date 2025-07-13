@@ -1,7 +1,11 @@
 import Saldo from "@/components/saldo";
 import Welcome from "@/components/welcome";
 
-export default function TransactionPage() {
+export default function MainLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <>
       {/* User Info & Saldo */}
@@ -10,6 +14,8 @@ export default function TransactionPage() {
 
         <Saldo />
       </div>
+
+      {children}
     </>
   );
 }

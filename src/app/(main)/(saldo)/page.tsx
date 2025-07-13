@@ -6,13 +6,6 @@ import Welcome from "@/components/welcome";
 export default function Home() {
   return (
     <>
-      {/* User Info & Saldo */}
-      <div className="flex items-center justify-between px-24">
-        <Welcome />
-
-        <Saldo />
-      </div>
-
       {/* Services */}
       <Services />
 
