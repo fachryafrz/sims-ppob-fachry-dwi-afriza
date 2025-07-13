@@ -12,8 +12,8 @@ export default function Banner() {
     return await axios.get(url).then(({ data }) => data.data);
   });
 
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (error) return <div className="px-24">failed to load</div>;
+  if (isLoading) return <div className="px-24">loading...</div>;
 
   return (
     <div className="space-y-4">
