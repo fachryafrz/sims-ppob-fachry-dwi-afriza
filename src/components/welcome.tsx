@@ -21,9 +21,19 @@ export default function Welcome() {
       <div className="space-y-4">
         {/* Image */}
         {data.profile_image?.split("/").pop() === "null" ? (
-          <img src={"/assets/Profile Photo.png"} alt="" draggable={false} />
+          <img
+            src={"/assets/Profile Photo.png"}
+            alt=""
+            draggable={false}
+            className="w-20 rounded-full border border-gray-400/50"
+          />
         ) : (
-          <img src={data.profile_image} alt="" draggable={false} />
+          <img
+            src={data.profile_image}
+            alt=""
+            draggable={false}
+            className="w-20 rounded-full border border-gray-400/50"
+          />
         )}
 
         <div>

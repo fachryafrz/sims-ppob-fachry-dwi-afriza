@@ -3,9 +3,11 @@
 import axios from "axios";
 import { Pencil } from "lucide-react";
 import toast from "react-hot-toast";
-import useSWR from "swr";
+import useSWR, { useSWRConfig } from "swr";
 
 export default function ImageUpload() {
+  const { mutate } = useSWRConfig();
+
   const { data } = useSWR(
     "/api/profile",
     async (url) => {
@@ -18,7 +20,9 @@ export default function ImageUpload() {
     },
   );
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const file = event.target.files?.[0];
 
     if (!file) return;
@@ -27,33 +31,47 @@ export default function ImageUpload() {
       toast.error("Size image yang diupload maksimum 100KB");
       return;
     }
+
+    const form = new FormData();
+    form.append("file", file);
+
+    const { data } = await axios.put("/api/profile/image", form);
+
+    mutate("/api/profile");
+
+    toast.success(data.message);
   };
 
   return (
     data && (
       <div className="flex flex-col items-center gap-4">
         {/* Image */}
-        <div className="relative w-[130px] rounded-full border border-gray-400/50">
+        <div className="relative w-[130px]">
           {data.profile_image?.split("/").pop() === "null" ? (
             <img
               src={"/assets/Profile Photo.png"}
               alt=""
               draggable={false}
-              className="w-full"
+              className="w-full rounded-full border border-gray-400/50"
             />
           ) : (
             <img
               src={data.profile_image}
               alt=""
               draggable={false}
-              className="w-full"
+              className="w-full rounded-full border border-gray-400/50"
             />
           )}
 
           <label className="absolute right-0 bottom-0 block aspect-square cursor-pointer rounded-full border border-gray-400/50 bg-white p-2">
             <Pencil size={16} />
 
-            <input type="file" className="hidden" onChange={handleFileChange} />
+            <input
+              type="file"
+              className="hidden"
+              accept="image/png, image/jpeg"
+              onChange={handleFileChange}
+            />
           </label>
         </div>
 
