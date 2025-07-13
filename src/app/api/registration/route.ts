@@ -1,11 +1,7 @@
-import { ACCESS_TOKEN } from "@/lib/constants";
 import axios, { AxiosError } from "axios";
-import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const cookieStore = await cookies();
-
   const {
     email,
     firstName: first_name,

@@ -98,8 +98,7 @@ export default function TopupForm() {
         <Banknote className={cn(amount && "text-black")} />
         <CurrencyInput
           placeholder="masukan nominal Top Up"
-          onValueChange={(value, name, values) => {
-            console.log(value, name, values);
+          onValueChange={(value) => {
             setAmount(value || "");
           }}
           groupSeparator="."
@@ -124,6 +123,7 @@ export default function TopupForm() {
       {/* Options */}
       {options.map((option) => (
         <button
+          key={option.value}
           type="button"
           className="w-full cursor-pointer rounded border border-gray-400/75 p-2"
           onClick={() => setAmount(option.value.toString())}

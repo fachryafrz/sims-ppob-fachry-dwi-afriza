@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 import { Error } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import axios, { AxiosError } from "axios";
-import { AtSign, Eye, EyeOff, LockKeyhole, User, X } from "lucide-react";
+import { AtSign, Eye, EyeOff, LockKeyhole, User } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";

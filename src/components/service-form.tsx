@@ -6,7 +6,6 @@ import { ServicesType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import axios, { AxiosError } from "axios";
 import { Banknote } from "lucide-react";
-import { useState } from "react";
 import CurrencyInput from "react-currency-input-field";
 import { useSWRConfig } from "swr";
 
@@ -81,10 +80,6 @@ export default function ServiceForm({ service }: { service: ServicesType }) {
           <Banknote className={cn(service.service_tariff && "text-black")} />
           <CurrencyInput
             placeholder="masukan nominal"
-            // onValueChange={(value, name, values) => {
-            //   console.log(value, name, values);
-            //   setAmount(values);
-            // }}
             groupSeparator="."
             decimalSeparator=","
             value={service.service_tariff}
