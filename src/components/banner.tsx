@@ -23,9 +23,24 @@ export default function Banner() {
   return (
     data && (
       <div className="space-y-4">
-        <h2 className="px-24 font-medium">Temukan promo menarik</h2>
+        <h2 className="px-4 font-medium xl:px-24">Temukan promo menarik</h2>
 
-        <Swiper spaceBetween={16} slidesPerView={4} className="!px-24">
+        <Swiper
+          spaceBetween={16}
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 4,
+            },
+          }}
+          className="!px-4 !pr-12 xl:!px-24"
+        >
           {data.map((banner: BannerType, index: number) => (
             <SwiperSlide key={index}>
               <img

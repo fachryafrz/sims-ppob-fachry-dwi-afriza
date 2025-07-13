@@ -68,7 +68,7 @@ export default function ServiceForm({ service }: { service: ServicesType }) {
           setOnConfirm(handleSubmit);
           setConfirmText("Ya, lanjutkan Bayar");
         }}
-        className="px-24"
+        className="px-4 xl:px-24"
       >
         {/* Input */}
         <div

@@ -20,9 +20,9 @@ export default function Services() {
 
   return (
     data && (
-      <ul className="flex justify-between px-24">
+      <ul className="grid grid-cols-3 gap-4 px-4 md:grid-cols-6 xl:flex xl:justify-between xl:px-24">
         {data.map((service: ServicesType) => (
-          <li key={service.service_code}>
+          <li key={service.service_code} className="flex justify-center">
             <Link
               href={`/services/${service.service_code}`}
               className="flex w-full max-w-[70px] cursor-pointer flex-col items-center gap-2 text-center text-xs"

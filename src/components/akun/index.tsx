@@ -5,7 +5,7 @@ import ImageUpload from "./image-upload";
 
 export default function Akun() {
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col">
+    <div className="mx-auto flex w-full max-w-3xl flex-col px-4">
       {/* Image & Name */}
       <ImageUpload />
 

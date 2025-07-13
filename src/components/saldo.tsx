@@ -16,7 +16,12 @@ export default function Saldo() {
     data && (
       <div className="relative">
         {/* Background */}
-        <img src="/assets/Background Saldo.png" alt="" draggable={false} />
+        <img
+          src="/assets/Background Saldo.png"
+          alt=""
+          draggable={false}
+          className="min-h-[160px] rounded-2xl object-cover object-right"
+        />
 
         {/* Info */}
         <div className="absolute inset-0 space-y-3 p-6 text-white">

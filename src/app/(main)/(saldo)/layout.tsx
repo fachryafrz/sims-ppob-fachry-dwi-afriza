@@ -9,7 +9,7 @@ export default function MainLayout({
   return (
     <>
       {/* User Info & Saldo */}
-      <div className="flex items-center justify-between px-24">
+      <div className="flex flex-col items-center justify-between gap-4 px-4 lg:flex-row xl:px-24">
         <Welcome />
 
         <Saldo />

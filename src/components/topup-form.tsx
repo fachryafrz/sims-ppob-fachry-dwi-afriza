@@ -86,12 +86,12 @@ export default function TopupForm() {
         setOnConfirm(handleSubmit);
         setConfirmText("Ya, lanjutkan Bayar");
       }}
-      className="grid grid-cols-12 grid-rows-2 gap-4"
+      className="grid grid-cols-2 grid-rows-2 gap-4 sm:grid-cols-3 md:grid-cols-6 xl:grid-cols-12"
     >
       {/* Input */}
       <div
         className={cn(
-          "col-span-9 flex items-center gap-2 rounded border border-gray-400/75 px-4 py-3 text-gray-400/75",
+          "col-span-full flex items-center gap-2 rounded border border-gray-400/75 px-4 py-3 text-gray-400/75 xl:col-span-9",
           // error?.message.includes("email") && "border-red-500 text-red-500",
         )}
       >
@@ -112,7 +112,7 @@ export default function TopupForm() {
       <button
         type="submit"
         className={cn(
-          "col-span-9 row-start-2 rounded px-4 py-3 text-sm font-medium text-white",
+          "col-span-full row-start-2 rounded px-4 py-3 text-sm font-medium text-white xl:col-span-9",
           amount ? "cursor-pointer bg-red-500" : "bg-gray-400",
         )}
         disabled={!amount}
@@ -125,7 +125,7 @@ export default function TopupForm() {
         <button
           key={option.value}
           type="button"
-          className="w-full cursor-pointer rounded border border-gray-400/75 p-2"
+          className="w-full cursor-pointer rounded border border-gray-400/75 p-2 text-sm"
           onClick={() => setAmount(option.value.toString())}
         >
           {option.label}

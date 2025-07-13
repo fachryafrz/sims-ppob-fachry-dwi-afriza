@@ -10,7 +10,7 @@ export default function Welcome() {
 
   return (
     data && (
-      <div className="space-y-4">
+      <div className="flex flex-col items-center gap-4 text-center lg:items-start lg:text-left">
         {/* Image */}
         {data.profile_image?.split("/").pop() === "null" ? (
           <img

@@ -26,7 +26,7 @@ export default async function ServicesPage({
   return (
     <>
       {/* Service Info */}
-      <div className="space-y-2 px-24">
+      <div className="space-y-2 px-4 xl:px-24">
         <h2 className="font-medium">Pembayaran</h2>
         <div className="flex items-center gap-2">
           <img src={service.service_icon} alt="" className="w-8" />

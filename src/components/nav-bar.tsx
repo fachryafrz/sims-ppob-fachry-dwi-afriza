@@ -25,7 +25,7 @@ export default function NavBar() {
 
   return (
     <header className="border-b border-gray-200 p-4 px-0">
-      <nav className="mx-auto flex items-center justify-between gap-4 px-24">
+      <nav className="mx-auto flex flex-col items-center justify-between gap-4 px-4 sm:flex-row xl:px-24">
         {/* Home */}
         <Link href="/" className="flex items-center gap-2 text-lg font-medium">
           <img src={siteConfig.logo} alt="" draggable={false} />
@@ -33,7 +33,7 @@ export default function NavBar() {
         </Link>
 
         {/* Links */}
-        <ul className="flex items-center gap-8">
+        <ul className="flex items-center gap-4 sm:gap-8">
           {links.map((link) => (
             <li key={link.href}>
               <Link
