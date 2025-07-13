@@ -1,5 +1,6 @@
 "use client";
 
+import { Error } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import axios, { AxiosError } from "axios";
 import { AtSign, User } from "lucide-react";
@@ -10,7 +11,7 @@ import useSWR, { useSWRConfig } from "swr";
 export default function AkunForm() {
   const { mutate } = useSWRConfig();
 
-  const { data, error, isLoading } = useSWR(
+  const { data } = useSWR(
     "/api/profile",
     async (url) => {
       return await axios.get(url).then(({ data }) => data.data);
@@ -26,23 +27,24 @@ export default function AkunForm() {
   const [email, setEmail] = useState(data?.email);
   const [firstName, setFirstName] = useState(data?.first_name);
   const [lastName, setLastName] = useState(data?.last_name);
+  const [error, setError] = useState<Error | null>();
 
   const handleSubmit = async () => {
     try {
       await axios.put("/api/profile/update", {
-        first_name: firstName,
-        last_name: lastName,
+        first_name: firstName.trim(),
+        last_name: lastName.trim(),
       });
 
       setIsEditing(false);
+      setError(null);
 
       mutate("/api/profile");
 
       toast.success("Berhasil mengubah akun");
     } catch (error) {
       if (error instanceof AxiosError) {
-        console.log(error.response?.data);
-        toast.error(error.response?.data.message);
+        setError(error.response?.data);
       }
     }
   };
@@ -52,9 +54,6 @@ export default function AkunForm() {
     setFirstName(data?.first_name);
     setLastName(data?.last_name);
   }, [data]);
-
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
 
   return (
     <form
@@ -71,19 +70,18 @@ export default function AkunForm() {
         <div
           className={cn(
             "flex items-center gap-2 rounded border border-gray-400/75 px-4 py-3 text-gray-400/75",
-            error?.message.includes("email") && "border-red-500 text-red-500",
           )}
         >
-          <AtSign size={16} className={cn(email && "text-black")} />
+          <AtSign size={16} />
           <input
             type="email"
             placeholder="masukan email anda"
             className={
-              "grow text-black outline-none placeholder:text-gray-400/75"
+              "grow text-black outline-none placeholder:text-gray-400/75 disabled:text-gray-400/75"
             }
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            disabled={!isEditing}
+            disabled
           />
         </div>
       </div>
@@ -94,47 +92,67 @@ export default function AkunForm() {
 
         <div
           className={cn(
-            "flex items-center gap-2 rounded border border-gray-400/75 px-4 py-3 text-gray-400/75",
+            "relative flex items-center gap-2 rounded border border-gray-400/75 px-4 py-3 text-gray-400/75",
             error?.message.includes("first_name") &&
               "border-red-500 text-red-500",
           )}
         >
-          <User size={16} className={cn(firstName && "text-black")} />
+          <User
+            size={16}
+            className={cn(firstName && isEditing && "text-black")}
+          />
           <input
             type="text"
             placeholder="masukan nama depan anda"
             className={
-              "grow text-black outline-none placeholder:text-gray-400/75"
+              "grow text-black outline-none placeholder:text-gray-400/75 disabled:text-gray-400/75"
             }
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
             disabled={!isEditing}
           />
+
+          {/* Error */}
+          {error?.message.includes("first_name") && (
+            <span className="absolute right-0 -bottom-6 text-sm text-red-500">
+              Nama depan harus diisi
+            </span>
+          )}
         </div>
       </div>
 
       {/* Nama Belakang */}
-      <div className="space-y-2">
+      <div className="mb-8 space-y-2">
         <label className="block">Nama Belakang</label>
 
         <div
           className={cn(
-            "flex items-center gap-2 rounded border border-gray-400/75 px-4 py-3 text-gray-400/75",
+            "relative flex items-center gap-2 rounded border border-gray-400/75 px-4 py-3 text-gray-400/75",
             error?.message.includes("last_name") &&
               "border-red-500 text-red-500",
           )}
         >
-          <User size={16} className={cn(lastName && "text-black")} />
+          <User
+            size={16}
+            className={cn(lastName && isEditing && "text-black")}
+          />
           <input
             type="text"
             placeholder="masukan nama depan anda"
             className={
-              "grow text-black outline-none placeholder:text-gray-400/75"
+              "grow text-black outline-none placeholder:text-gray-400/75 disabled:text-gray-400/75"
             }
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
             disabled={!isEditing}
           />
+
+          {/* Error */}
+          {error?.message.includes("last_name") && (
+            <span className="absolute right-0 -bottom-6 text-sm text-red-500">
+              Nama belakang harus diisi
+            </span>
+          )}
         </div>
       </div>
 

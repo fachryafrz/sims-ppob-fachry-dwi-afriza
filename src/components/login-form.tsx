@@ -22,7 +22,10 @@ export default function LoginForm() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("/api/login", { email, password });
+      const { data } = await axios.post("/api/login", {
+        email: email.trim(),
+        password: password.trim(),
+      });
 
       toast.success(data.message);
 

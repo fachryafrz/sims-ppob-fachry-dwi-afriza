@@ -19,7 +19,7 @@ export default function ListOfTransactions() {
   const offset = 0;
   const [showMore, setShowMore] = useState(true);
 
-  const { data, error, isLoading, mutate } = useSWR(
+  const { data, mutate } = useSWR(
     "/api/transaction/history",
     async (url) => {
       return await axios
@@ -52,54 +52,51 @@ export default function ListOfTransactions() {
     );
   };
 
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
-
-  console.log(data);
-
   return (
-    <div className="space-y-4">
-      {data.records.map((t: TransactionType, index: number) => (
-        <div
-          key={index}
-          className="flex items-center justify-between rounded-lg border border-gray-400 p-4"
-        >
-          {/* Amount & Date */}
-          <div className="flex flex-col">
-            {/* Amount */}
-            <span
-              className={cn(
-                "text-lg font-medium",
-                t.transaction_type === "TOPUP"
-                  ? "text-green-500"
-                  : "text-red-500",
-              )}
-            >
-              {t.transaction_type === "TOPUP" ? "+" : "-"}{" "}
-              {`Rp${Intl.NumberFormat("id-ID").format(t.total_amount)}`}
-            </span>
+    data && (
+      <div className="space-y-4">
+        {data.records.map((t: TransactionType, index: number) => (
+          <div
+            key={index}
+            className="flex items-center justify-between rounded-lg border border-gray-400 p-4"
+          >
+            {/* Amount & Date */}
+            <div className="flex flex-col">
+              {/* Amount */}
+              <span
+                className={cn(
+                  "text-lg font-medium",
+                  t.transaction_type === "TOPUP"
+                    ? "text-green-500"
+                    : "text-red-500",
+                )}
+              >
+                {t.transaction_type === "TOPUP" ? "+" : "-"}{" "}
+                {`Rp${Intl.NumberFormat("id-ID").format(t.total_amount)}`}
+              </span>
 
-            {/* Date */}
-            <span className="text-sm text-gray-400">
-              {`${dayjs
-                .tz(t.created_on, "Asia/Jakarta")
-                .format("DD MMMM YYYY HH:mm")} WIB`}
-            </span>
+              {/* Date */}
+              <span className="text-sm text-gray-400">
+                {`${dayjs
+                  .tz(t.created_on, "Asia/Jakarta")
+                  .format("DD MMMM YYYY HH:mm")} WIB`}
+              </span>
+            </div>
+
+            {/* Info */}
+            <span>{t.description}</span>
           </div>
+        ))}
 
-          {/* Info */}
-          <span>{t.description}</span>
-        </div>
-      ))}
-
-      {showMore && (
-        <button
-          className="mx-auto block cursor-pointer font-medium text-red-500"
-          onClick={() => fetchMore()}
-        >
-          Show more
-        </button>
-      )}
-    </div>
+        {showMore && (
+          <button
+            className="mx-auto block cursor-pointer font-medium text-red-500"
+            onClick={() => fetchMore()}
+          >
+            Show more
+          </button>
+        )}
+      </div>
+    )
   );
 }

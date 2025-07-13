@@ -36,10 +36,10 @@ export default function RegistrationForm() {
 
     try {
       const { data } = await axios.post("/api/registration", {
-        email,
-        firstName,
-        lastName,
-        password: confirmPassword,
+        email: email.trim(),
+        firstName: firstName.trim(),
+        lastName: lastName.trim(),
+        password: confirmPassword.trim(),
       });
 
       setError(null);
