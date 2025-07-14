@@ -7,10 +7,30 @@ import { cn } from "@/lib/utils";
 import axios, { AxiosError } from "axios";
 import { Banknote } from "lucide-react";
 import CurrencyInput from "react-currency-input-field";
-import { useSWRConfig } from "swr";
+import useSWR, { useSWRConfig } from "swr";
 
-export default function ServiceForm({ service }: { service: ServicesType }) {
+export default function ServiceForm({
+  service_code,
+}: {
+  service_code: string;
+}) {
   const { mutate } = useSWRConfig();
+
+  const { data } = useSWR(
+    "/api/services",
+    async (url) => {
+      return await axios.get(url).then(({ data }) => data.data);
+    },
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    },
+  );
+
+  const service = data?.find(
+    (service: ServicesType) => service.service_code === service_code,
+  );
 
   const {
     onOpen,
@@ -58,6 +78,16 @@ export default function ServiceForm({ service }: { service: ServicesType }) {
 
   return (
     <>
+      {/* Service Info */}
+      <div className="space-y-2 px-4 xl:px-24">
+        <h2 className="font-medium">Pembayaran</h2>
+        <div className="flex items-center gap-2">
+          <img src={service.service_icon} alt="" className="w-8" />
+          <span>{service.service_name}</span>
+        </div>
+      </div>
+
+      {/* Service Form */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
