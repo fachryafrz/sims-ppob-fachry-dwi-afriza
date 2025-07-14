@@ -9,6 +9,7 @@ import { Banknote } from "lucide-react";
 import CurrencyInput from "react-currency-input-field";
 import useSWR, { useSWRConfig } from "swr";
 import Skeleton from "./skeleton";
+import { useState } from "react";
 
 export default function ServiceForm({
   service_code,
@@ -33,6 +34,8 @@ export default function ServiceForm({
     (service: ServicesType) => service.service_code === service_code,
   );
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     onOpen,
     onClose,
@@ -51,6 +54,8 @@ export default function ServiceForm({
 
   const handleSubmit = async () => {
     onClose();
+
+    setIsLoading(true);
 
     try {
       await axios.post("/api/transaction", {
@@ -129,7 +134,10 @@ export default function ServiceForm({
         {/* Button */}
         <button
           type="submit"
-          className="mt-6 w-full cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white"
+          className={cn(
+            "mt-6 w-full cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white disabled:cursor-default disabled:bg-gray-400/75",
+          )}
+          disabled={isLoading || !service?.service_tariff}
         >
           Bayar
         </button>

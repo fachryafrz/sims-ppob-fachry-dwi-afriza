@@ -33,6 +33,7 @@ export default function TopupForm() {
   } = useStatus();
 
   const [amount, setAmount] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const options = [
     { value: 10000, label: "Rp10.000" },
@@ -59,6 +60,8 @@ export default function TopupForm() {
       );
       return;
     }
+
+    setIsLoading(true);
 
     try {
       await axios.post("/api/topup", {
@@ -120,10 +123,9 @@ export default function TopupForm() {
       <button
         type="submit"
         className={cn(
-          "col-span-full row-start-2 rounded px-4 py-3 text-sm font-medium text-white xl:col-span-9",
-          amount ? "cursor-pointer bg-red-500" : "bg-gray-400",
+          "col-span-full row-start-2 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white disabled:cursor-default disabled:bg-gray-400 xl:col-span-9",
         )}
-        disabled={!amount}
+        disabled={isLoading || !amount}
       >
         Top Up
       </button>
