@@ -8,6 +8,7 @@ import axios, { AxiosError } from "axios";
 import { Banknote } from "lucide-react";
 import CurrencyInput from "react-currency-input-field";
 import useSWR, { useSWRConfig } from "swr";
+import Skeleton from "./skeleton";
 
 export default function ServiceForm({
   service_code,
@@ -81,10 +82,17 @@ export default function ServiceForm({
       {/* Service Info */}
       <div className="space-y-2 px-4 xl:px-24">
         <h2 className="font-medium">Pembayaran</h2>
-        <div className="flex items-center gap-2">
-          <img src={service.service_icon} alt="" className="w-8" />
-          <span>{service.service_name}</span>
-        </div>
+        {service ? (
+          <div className="flex items-center gap-2">
+            <img src={service?.service_icon} alt="" className="w-8" />
+            <span>{service?.service_name}</span>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2">
+            <Skeleton className="aspect-square w-8" />
+            <Skeleton className="h-6 w-16" />
+          </div>
+        )}
       </div>
 
       {/* Service Form */}
@@ -93,8 +101,8 @@ export default function ServiceForm({
           e.preventDefault();
 
           onOpen();
-          setDescription(`Beli ${service.service_name.toLowerCase()} senilai`);
-          setAmount(service.service_tariff);
+          setDescription(`Beli ${service?.service_name.toLowerCase()} senilai`);
+          setAmount(service?.service_tariff);
           setOnConfirm(handleSubmit);
           setConfirmText("Ya, lanjutkan Bayar");
         }}
@@ -107,12 +115,12 @@ export default function ServiceForm({
             // error?.message.includes("email") && "border-red-500 text-red-500",
           )}
         >
-          <Banknote className={cn(service.service_tariff && "text-black")} />
+          <Banknote className={cn(service?.service_tariff && "text-black")} />
           <CurrencyInput
             placeholder="masukan nominal"
             groupSeparator="."
             decimalSeparator=","
-            value={service.service_tariff}
+            value={service?.service_tariff}
             disabled
             className="grow text-black outline-none placeholder:text-gray-400/75"
           />

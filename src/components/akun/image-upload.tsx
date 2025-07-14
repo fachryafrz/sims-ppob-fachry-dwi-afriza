@@ -4,6 +4,7 @@ import axios from "axios";
 import { Pencil } from "lucide-react";
 import toast from "react-hot-toast";
 import useSWR, { useSWRConfig } from "swr";
+import Skeleton from "../skeleton";
 
 export default function ImageUpload() {
   const { mutate } = useSWRConfig();
@@ -35,11 +36,11 @@ export default function ImageUpload() {
   };
 
   return (
-    data && (
-      <div className="flex flex-col items-center gap-4">
-        {/* Image */}
-        <div className="relative w-[130px]">
-          {data.profile_image?.split("/").pop() === "null" ? (
+    <div className="flex flex-col items-center gap-4">
+      {/* Image */}
+      <div className="relative w-[130px]">
+        {data ? (
+          data.profile_image?.split("/").pop() === "null" ? (
             <img
               src={"/assets/Profile Photo.png"}
               alt=""
@@ -53,23 +54,29 @@ export default function ImageUpload() {
               draggable={false}
               className="aspect-square w-full rounded-full border border-gray-400/50 object-cover"
             />
-          )}
+          )
+        ) : (
+          <Skeleton className="aspect-square w-full rounded-full" />
+        )}
 
-          <label className="absolute right-0 bottom-0 block aspect-square cursor-pointer rounded-full border border-gray-400/50 bg-white p-2">
-            <Pencil size={16} />
+        <label className="absolute right-0 bottom-0 block aspect-square cursor-pointer rounded-full border border-gray-400/50 bg-white p-2">
+          <Pencil size={16} />
 
-            <input
-              type="file"
-              className="hidden"
-              accept="image/png, image/jpeg"
-              onChange={handleFileChange}
-            />
-          </label>
-        </div>
-
-        {/* Name */}
-        <span className="block text-3xl font-medium">{`${data.first_name} ${data.last_name}`}</span>
+          <input
+            type="file"
+            className="hidden"
+            accept="image/png, image/jpeg"
+            onChange={handleFileChange}
+          />
+        </label>
       </div>
-    )
+
+      {/* Name */}
+      {data ? (
+        <span className="block text-3xl font-medium">{`${data.first_name} ${data.last_name}`}</span>
+      ) : (
+        <Skeleton className="h-9 w-40" />
+      )}
+    </div>
   );
 }

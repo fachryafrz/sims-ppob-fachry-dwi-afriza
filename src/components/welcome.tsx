@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import useSWR from "swr";
+import Skeleton from "./skeleton";
 
 export default function Welcome() {
   const { data } = useSWR("/api/profile", async (url) => {
@@ -9,10 +10,10 @@ export default function Welcome() {
   });
 
   return (
-    data && (
-      <div className="flex flex-col items-center gap-4 text-center lg:items-start lg:text-left">
-        {/* Image */}
-        {data.profile_image?.split("/").pop() === "null" ? (
+    <div className="flex flex-col items-center gap-4 text-center lg:items-start lg:text-left">
+      {/* Image */}
+      {data ? (
+        data.profile_image?.split("/").pop() === "null" ? (
           <img
             src={"/assets/Profile Photo.png"}
             alt=""
@@ -26,13 +27,19 @@ export default function Welcome() {
             draggable={false}
             className="aspect-square w-20 rounded-full border border-gray-400/50 object-cover"
           />
-        )}
+        )
+      ) : (
+        <Skeleton className="aspect-square w-20 rounded-full" />
+      )}
 
-        <div>
-          <span className="text-lg">Selamat datang,</span>
+      <div>
+        <span className="text-lg">Selamat datang,</span>
+        {data ? (
           <h1 className="text-3xl font-medium">{`${data.first_name} ${data.last_name}`}</h1>
-        </div>
+        ) : (
+          <Skeleton className="h-9 w-40" />
+        )}
       </div>
-    )
+    </div>
   );
 }

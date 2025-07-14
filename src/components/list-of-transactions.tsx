@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/id";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import Skeleton from "./skeleton";
 
 dayjs.locale("id");
 dayjs.extend(utc);
@@ -53,56 +54,62 @@ export default function ListOfTransactions() {
   };
 
   return (
-    data && (
-      <div className="space-y-4">
-        {data.records.map((t: TransactionType, index: number) => (
-          <div
-            key={index}
-            className="flex items-center justify-between rounded-lg border border-gray-400 p-4"
-          >
-            {/* Amount & Date */}
-            <div className="flex flex-col">
-              {/* Amount */}
-              <span
-                className={cn(
-                  "text-lg font-medium",
-                  t.transaction_type === "TOPUP"
-                    ? "text-green-500"
-                    : "text-red-500",
-                )}
-              >
-                {t.transaction_type === "TOPUP" ? "+" : "-"}{" "}
-                {`Rp${Intl.NumberFormat("id-ID").format(t.total_amount)}`}
-              </span>
+    <div className="space-y-4">
+      {data ? (
+        <>
+          {data.records.map((t: TransactionType, index: number) => (
+            <div
+              key={index}
+              className="flex items-center justify-between rounded-lg border border-gray-400 p-4"
+            >
+              {/* Amount & Date */}
+              <div className="flex flex-col">
+                {/* Amount */}
+                <span
+                  className={cn(
+                    "text-lg font-medium",
+                    t.transaction_type === "TOPUP"
+                      ? "text-green-500"
+                      : "text-red-500",
+                  )}
+                >
+                  {t.transaction_type === "TOPUP" ? "+" : "-"}{" "}
+                  {`Rp${Intl.NumberFormat("id-ID").format(t.total_amount)}`}
+                </span>
 
-              {/* Date */}
-              <span className="text-sm text-gray-400">
-                {`${dayjs
-                  .tz(t.created_on, "Asia/Jakarta")
-                  .format("DD MMMM YYYY HH:mm")} WIB`}
-              </span>
+                {/* Date */}
+                <span className="text-sm text-gray-400">
+                  {`${dayjs
+                    .tz(t.created_on, "Asia/Jakarta")
+                    .format("DD MMMM YYYY HH:mm")} WIB`}
+                </span>
+              </div>
+
+              {/* Info */}
+              <span>{t.description}</span>
             </div>
+          ))}
 
-            {/* Info */}
-            <span>{t.description}</span>
-          </div>
-        ))}
+          {data.records.length === 0 && (
+            <span className="block text-center text-sm text-gray-400">
+              Belum ada transaksi
+            </span>
+          )}
 
-        {data.records.length === 0 && (
-          <span className="block text-center text-sm text-gray-400">
-            Belum ada transaksi
-          </span>
-        )}
-
-        {data.records.length > 0 && showMore && (
-          <button
-            className="mx-auto block cursor-pointer font-medium text-red-500"
-            onClick={() => fetchMore()}
-          >
-            Show more
-          </button>
-        )}
-      </div>
-    )
+          {data.records.length > 0 && showMore && (
+            <button
+              className="mx-auto block cursor-pointer font-medium text-red-500"
+              onClick={() => fetchMore()}
+            >
+              Show more
+            </button>
+          )}
+        </>
+      ) : (
+        [...Array(limit)].map((_, index) => (
+          <Skeleton key={index} className="h-20 rounded-lg" />
+        ))
+      )}
+    </div>
   );
 }
