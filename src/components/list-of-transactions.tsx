@@ -96,7 +96,7 @@ export default function ListOfTransactions() {
             </span>
           )}
 
-          {data.records.length > 0 && showMore && (
+          {data.records.length >= 5 && showMore && (
             <button
               className="mx-auto block cursor-pointer font-medium text-red-500"
               onClick={() => fetchMore()}
