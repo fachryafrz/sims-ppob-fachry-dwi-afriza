@@ -110,7 +110,7 @@ export default function LoginForm() {
 
         <button
           type="submit"
-          className="mt-8 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white disabled:cursor-default disabled:opacity-50"
+          className="mt-8 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white hover:bg-red-500/75 disabled:cursor-default disabled:opacity-50"
           disabled={loading}
         >
           Masuk

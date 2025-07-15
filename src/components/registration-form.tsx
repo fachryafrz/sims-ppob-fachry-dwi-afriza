@@ -232,7 +232,7 @@ export default function RegistrationForm() {
 
         <button
           type="submit"
-          className="mt-8 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white"
+          className="mt-8 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white hover:bg-red-500/75"
         >
           Registrasi
         </button>

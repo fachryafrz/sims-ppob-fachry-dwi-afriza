@@ -135,7 +135,7 @@ export default function ServiceForm({
         <button
           type="submit"
           className={cn(
-            "mt-6 w-full cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white disabled:cursor-default disabled:bg-gray-400/75",
+            "mt-6 w-full cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white hover:bg-red-500/75 disabled:cursor-default disabled:bg-gray-400/75",
           )}
           disabled={isLoading || !service?.service_tariff}
         >

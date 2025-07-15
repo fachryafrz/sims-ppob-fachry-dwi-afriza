@@ -123,7 +123,7 @@ export default function TopupForm() {
       <button
         type="submit"
         className={cn(
-          "col-span-full row-start-2 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white disabled:cursor-default disabled:bg-gray-400 xl:col-span-9",
+          "col-span-full row-start-2 cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white hover:bg-red-500/75 disabled:cursor-default disabled:bg-gray-400 xl:col-span-9",
         )}
         disabled={isLoading || !amount}
       >
@@ -135,7 +135,10 @@ export default function TopupForm() {
         <button
           key={option.value}
           type="button"
-          className="w-full cursor-pointer rounded border border-gray-400/75 p-2 text-sm"
+          className={cn(
+            "w-full cursor-pointer rounded border border-gray-400/75 p-2 text-sm hover:bg-gray-400/25",
+            amount === option.value.toString() && "bg-gray-400/25",
+          )}
           onClick={() => setAmount(option.value.toString())}
         >
           {option.label}

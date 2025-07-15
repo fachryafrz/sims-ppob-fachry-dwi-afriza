@@ -167,7 +167,7 @@ export default function AkunForm() {
       <button
         type="submit"
         className={cn(
-          "w-full cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white",
+          "w-full cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white hover:bg-red-500/75",
           isEditing ? "block" : "hidden",
         )}
       >
@@ -176,7 +176,7 @@ export default function AkunForm() {
       <button
         type="button"
         className={cn(
-          "block w-full cursor-pointer rounded border border-red-500 px-4 py-3 text-sm font-medium text-red-500",
+          "block w-full cursor-pointer rounded border border-red-500 px-4 py-3 text-sm font-medium text-red-500 hover:bg-gray-400/25",
           isEditing ? "block" : "hidden",
         )}
         onClick={() => setIsEditing(false)}
@@ -186,7 +186,7 @@ export default function AkunForm() {
       <button
         type="button"
         className={cn(
-          "block w-full cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white",
+          "block w-full cursor-pointer rounded bg-red-500 px-4 py-3 text-sm font-medium text-white hover:bg-red-500/75",
           !isEditing ? "block" : "hidden",
         )}
         onClick={() => setIsEditing(true)}
@@ -196,7 +196,7 @@ export default function AkunForm() {
       <button
         type="button"
         className={cn(
-          "block w-full cursor-pointer rounded border border-red-500 px-4 py-3 text-sm font-medium text-red-500",
+          "block w-full cursor-pointer rounded border border-red-500 px-4 py-3 text-sm font-medium text-red-500 hover:bg-gray-400/25",
           !isEditing ? "block" : "hidden",
         )}
         onClick={handleLogout}
