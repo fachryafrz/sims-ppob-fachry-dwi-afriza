@@ -1,6 +1,6 @@
 # SIMS PPOB-Fachry Dwi Afriza
 
-Take Home Test untuk posisi **Web Programmer** di [PT. Nutech Integrasi](https://www.nutech-integrasi.com) yang diberikan pada tanggal **12 Juli 2025**
+SIMS PPOB (Payment Point Online Bank) adalah aplikasi web simulasi pembayaran layanan digital seperti pulsa, listrik, dan produk PPOB lainnya. Proyek ini merupakan take home test untuk posisi Web Programmer di [PT. Nutech Integrasi](https://www.nutech-integrasi.com), dengan fokus pada integrasi API, manajemen user, dan transaksi.
 
 ## ✨ Fitur-fitur
 
