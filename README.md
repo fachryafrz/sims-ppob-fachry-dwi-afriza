@@ -1,6 +1,10 @@
+[![SIMS PPOB](https://fachryafrz.com/projects/sims-ppob-nutech/home.png)](https://sims-ppob-fachry-dwi-afriza.netlify.app)
+
 # SIMS PPOB-Fachry Dwi Afriza
 
-SIMS PPOB (Payment Point Online Bank) adalah aplikasi web simulasi pembayaran layanan digital seperti pulsa, listrik, dan produk PPOB lainnya. Proyek ini merupakan take home test untuk posisi Web Programmer di [PT. Nutech Integrasi](https://www.nutech-integrasi.com), dengan fokus pada integrasi API, manajemen user, dan transaksi.
+SIMS PPOB (Payment Point Online Bank) adalah aplikasi web simulasi pembayaran layanan digital seperti pulsa, listrik, dan produk PPOB lainnya.
+
+> Proyek ini merupakan take home test untuk posisi Web Programmer di [PT. Nutech Integrasi](https://www.nutech-integrasi.com), dengan fokus pada kesesuaian mock up, handling validasi form, handling response API, kode yang bersih & terstruktur.
 
 ## ✨ Fitur-fitur
 
@@ -35,3 +39,11 @@ cp .env.example .env.local
 
 pnpm dev
 ```
+
+## 📸 Screenshots
+
+[![SIMS PPOB](https://fachryafrz.com/projects/sims-ppob-nutech/home-mobile.png)](https://sims-ppob-fachry-dwi-afriza.netlify.app)
+[![SIMS PPOB](https://fachryafrz.com/projects/sims-ppob-nutech/authentication.png)](https://sims-ppob-fachry-dwi-afriza.netlify.app)
+[![SIMS PPOB](https://fachryafrz.com/projects/sims-ppob-nutech/payment.png)](https://sims-ppob-fachry-dwi-afriza.netlify.app)
+[![SIMS PPOB](https://fachryafrz.com/projects/sims-ppob-nutech/transactions.png)](https://sims-ppob-fachry-dwi-afriza.netlify.app)
+[![SIMS PPOB](https://fachryafrz.com/projects/sims-ppob-nutech/account.png)](https://sims-ppob-fachry-dwi-afriza.netlify.app)
