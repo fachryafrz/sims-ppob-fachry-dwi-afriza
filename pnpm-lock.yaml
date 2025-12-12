@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.60.0(react@19.1.0))
+        version: 5.1.1(react-hook-form@7.60.0(react@19.0.3))
       axios:
         specifier: ^1.10.0
         version: 1.10.0
@@ -22,37 +22,37 @@ importers:
         version: 1.11.13
       lucide-react:
         specifier: ^0.525.0
-        version: 0.525.0(react@19.1.0)
+        version: 0.525.0(react@19.0.3)
       next:
-        specifier: 15.4.8
-        version: 15.4.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 15.4.10
+        version: 15.4.10(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
       react:
-        specifier: ^19.0.0
-        version: 19.1.0
+        specifier: 19.0.3
+        version: 19.0.3
       react-currency-input-field:
         specifier: ^3.10.0
-        version: 3.10.0(react@19.1.0)
+        version: 3.10.0(react@19.0.3)
       react-dom:
-        specifier: ^19.0.0
-        version: 19.1.0(react@19.1.0)
+        specifier: 19.0.3
+        version: 19.0.3(react@19.0.3)
       react-hook-form:
         specifier: ^7.60.0
-        version: 7.60.0(react@19.1.0)
+        version: 7.60.0(react@19.0.3)
       react-hot-toast:
         specifier: ^2.5.2
-        version: 2.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 2.5.2(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
       swiper:
         specifier: ^11.2.10
         version: 11.2.10
       swr:
         specifier: ^2.3.4
-        version: 2.3.4(react@19.1.0)
+        version: 2.3.4(react@19.0.3)
       tailwind-merge:
         specifier: ^3.3.1
         version: 3.3.1
       zustand:
         specifier: ^5.0.6
-        version: 5.0.6(@types/react@19.1.8)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
+        version: 5.0.6(@types/react@19.1.8)(react@19.0.3)(use-sync-external-store@1.5.0(react@19.0.3))
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -318,8 +318,8 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@next/env@15.4.8':
-    resolution: {integrity: sha512-LydLa2MDI1NMrOFSkO54mTc8iIHSttj6R6dthITky9ylXV2gCGi0bHQjVCtLGRshdRPjyh2kXbxJukDtBWQZtQ==}
+  '@next/env@15.4.10':
+    resolution: {integrity: sha512-knhmoJ0Vv7VRf6pZEPSnciUG1S4bIhWx+qTYBW/AjxEtlzsiNORPk8sFDCEvqLfmKuey56UB9FL1UdHEV3uBrg==}
 
   '@next/eslint-plugin-next@15.4.8':
     resolution: {integrity: sha512-KYz0o9fUk2SRgxEZCWJbV3TfZ4Zxt7lAhuZ1rsHG1A9tMqTz40Zg2lHi3qtrFJ4Nw8ya6z0oR77zQiWDFo0EGg==}
@@ -1513,8 +1513,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  next@15.4.8:
-    resolution: {integrity: sha512-jwOXTz/bo0Pvlf20FSb6VXVeWRssA2vbvq9SdrOPEg9x8E1B27C2rQtvriAn600o9hH61kjrVRexEffv3JybuA==}
+  next@15.4.10:
+    resolution: {integrity: sha512-itVlc79QjpKMFMRhP+kbGKaSG/gZM6RCvwhEbwmCNF06CdDiNaoHcbeg0PqkEa2GOcn8KJ0nnc7+yL7EjoYLHQ==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
@@ -1708,10 +1708,10 @@ packages:
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react-dom@19.1.0:
-    resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
+  react-dom@19.0.3:
+    resolution: {integrity: sha512-a7ezLfxibhu6fZBVLwy6WEd3Jn/4H8JYVO8K8GtBfRf1Pl+ox7KFoMCzAGlxLZUXo0t44YZShzhhoDH3yMVdxQ==}
     peerDependencies:
-      react: ^19.1.0
+      react: ^19.0.3
 
   react-hook-form@7.60.0:
     resolution: {integrity: sha512-SBrYOvMbDB7cV8ZfNpaiLcgjH/a1c7aK0lK+aNigpf4xWLO8q+o4tcvVurv3c4EOyzn/3dCsYt4GKD42VvJ/+A==}
@@ -1729,8 +1729,8 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  react@19.1.0:
-    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
+  react@19.0.3:
+    resolution: {integrity: sha512-owzQanTgpB8GF7pVL6mUwZZyhKzFePi9++GkFk54i9PRU0jq+z7v9Mwg7PAZJYCiYl5YwcyQGGq5/PLkesd8nw==}
     engines: {node: '>=0.10.0'}
 
   reflect.getprototypeof@1.0.10:
@@ -1776,8 +1776,8 @@ packages:
     resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
 
-  scheduler@0.26.0:
-    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
+  scheduler@0.25.0:
+    resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -2100,10 +2100,10 @@ snapshots:
       '@eslint/core': 0.15.1
       levn: 0.4.1
 
-  '@hookform/resolvers@5.1.1(react-hook-form@7.60.0(react@19.1.0))':
+  '@hookform/resolvers@5.1.1(react-hook-form@7.60.0(react@19.0.3))':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.60.0(react@19.1.0)
+      react-hook-form: 7.60.0(react@19.0.3)
 
   '@humanfs/core@0.19.1': {}
 
@@ -2229,7 +2229,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.0
     optional: true
 
-  '@next/env@15.4.8': {}
+  '@next/env@15.4.10': {}
 
   '@next/eslint-plugin-next@15.4.8':
     dependencies:
@@ -3476,9 +3476,9 @@ snapshots:
     dependencies:
       js-tokens: 4.0.0
 
-  lucide-react@0.525.0(react@19.1.0):
+  lucide-react@0.525.0(react@19.0.3):
     dependencies:
-      react: 19.1.0
+      react: 19.0.3
 
   magic-string@0.30.17:
     dependencies:
@@ -3525,15 +3525,15 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@15.4.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next@15.4.10(react-dom@19.0.3(react@19.0.3))(react@19.0.3):
     dependencies:
-      '@next/env': 15.4.8
+      '@next/env': 15.4.10
       '@swc/helpers': 0.5.15
       caniuse-lite: 1.0.30001727
       postcss: 8.4.31
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-      styled-jsx: 5.1.6(react@19.1.0)
+      react: 19.0.3
+      react-dom: 19.0.3(react@19.0.3)
+      styled-jsx: 5.1.6(react@19.0.3)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.4.8
       '@next/swc-darwin-x64': 15.4.8
@@ -3663,29 +3663,29 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  react-currency-input-field@3.10.0(react@19.1.0):
+  react-currency-input-field@3.10.0(react@19.0.3):
     dependencies:
-      react: 19.1.0
+      react: 19.0.3
 
-  react-dom@19.1.0(react@19.1.0):
+  react-dom@19.0.3(react@19.0.3):
     dependencies:
-      react: 19.1.0
-      scheduler: 0.26.0
+      react: 19.0.3
+      scheduler: 0.25.0
 
-  react-hook-form@7.60.0(react@19.1.0):
+  react-hook-form@7.60.0(react@19.0.3):
     dependencies:
-      react: 19.1.0
+      react: 19.0.3
 
-  react-hot-toast@2.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  react-hot-toast@2.5.2(react-dom@19.0.3(react@19.0.3))(react@19.0.3):
     dependencies:
       csstype: 3.1.3
       goober: 2.1.16(csstype@3.1.3)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      react: 19.0.3
+      react-dom: 19.0.3(react@19.0.3)
 
   react-is@16.13.1: {}
 
-  react@19.1.0: {}
+  react@19.0.3: {}
 
   reflect.getprototypeof@1.0.10:
     dependencies:
@@ -3748,7 +3748,7 @@ snapshots:
       es-errors: 1.3.0
       is-regex: 1.2.1
 
-  scheduler@0.26.0: {}
+  scheduler@0.25.0: {}
 
   semver@6.3.1: {}
 
@@ -3908,10 +3908,10 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  styled-jsx@5.1.6(react@19.1.0):
+  styled-jsx@5.1.6(react@19.0.3):
     dependencies:
       client-only: 0.0.1
-      react: 19.1.0
+      react: 19.0.3
 
   supports-color@7.2.0:
     dependencies:
@@ -3921,11 +3921,11 @@ snapshots:
 
   swiper@11.2.10: {}
 
-  swr@2.3.4(react@19.1.0):
+  swr@2.3.4(react@19.0.3):
     dependencies:
       dequal: 2.0.3
-      react: 19.1.0
-      use-sync-external-store: 1.5.0(react@19.1.0)
+      react: 19.0.3
+      use-sync-external-store: 1.5.0(react@19.0.3)
 
   tailwind-merge@3.3.1: {}
 
@@ -4040,9 +4040,9 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  use-sync-external-store@1.5.0(react@19.1.0):
+  use-sync-external-store@1.5.0(react@19.0.3):
     dependencies:
-      react: 19.1.0
+      react: 19.0.3
 
   which-boxed-primitive@1.1.1:
     dependencies:
@@ -4095,8 +4095,8 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zustand@5.0.6(@types/react@19.1.8)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0)):
+  zustand@5.0.6(@types/react@19.1.8)(react@19.0.3)(use-sync-external-store@1.5.0(react@19.0.3)):
     optionalDependencies:
       '@types/react': 19.1.8
-      react: 19.1.0
-      use-sync-external-store: 1.5.0(react@19.1.0)
+      react: 19.0.3
+      use-sync-external-store: 1.5.0(react@19.0.3)
